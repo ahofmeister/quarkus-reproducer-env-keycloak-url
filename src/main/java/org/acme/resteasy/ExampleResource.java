@@ -1,16 +1,17 @@
 package org.acme.resteasy;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
-@Path("/resteasy/hello")
+@Path("/envs")
 public class ExampleResource {
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "hello";
-    }
+  @Inject
+  KeycloakConfig keycloakConfig;
+
+  @GET
+  public String init() {
+    return keycloakConfig.url + " -> " + keycloakConfig.realm;
+  }
 }
