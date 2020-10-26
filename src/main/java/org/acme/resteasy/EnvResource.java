@@ -5,7 +5,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 @Path("/envs")
-public class ExampleResource {
+public class EnvResource {
 
   @Inject
   KeycloakConfig keycloakConfig;
